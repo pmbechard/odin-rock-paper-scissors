@@ -44,6 +44,16 @@
     width: 20vh;
     font-size: 1em;
     text-align: center;
+    outline: none !important;
+    border: 3px solid rgb(179, 6, 6);
+}
+
+.body input.valid {
+    border: 3px solid rgb(15, 114, 15);
+}
+
+.body input.invalid {
+    border: 3px solid rgb(179, 6, 6);
 }
 
 .body .result {
