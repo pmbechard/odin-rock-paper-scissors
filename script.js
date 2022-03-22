@@ -1,18 +1,21 @@
 const inputField = document.querySelector("#user-input");
-inputField.addEventListener('keyup', validateInput)
+inputField.addEventListener("keyup", validateInput)
 
 const playButton = document.querySelector("#play-button");
 playButton.disabled = true;
 playButton.className = "disabled";
-playButton.addEventListener('click', runGame)
-document.addEventListener('keyup', (event) => {
+playButton.addEventListener("click", runGame)
+document.addEventListener("keyup", (event) => {
     if (event.key == "Enter" && playButton.disabled === false) {
         runGame();
     }
 })
 
-const restartButton = document.querySelector("#restart-button");
-restartButton.addEventListener('click', resetGame)
+const clearFieldsButton = document.querySelector("#restart-button");
+clearFieldsButton.addEventListener("click", clearFields)
+
+const resetAllButton = document.querySelector("#reset-all-button");
+resetAllButton.addEventListener("click", resetGame)
 
 const resultOutput = document.querySelector("#result");
 
@@ -72,9 +75,17 @@ function getResult(user, comp) {
     }
 }
 
-function resetGame() {
+function clearFields() {
     resultOutput.textContent = "Press play when you're ready...";
     inputField.value = "";
     playButton.disabled = true;
     playButton.className = "disabled";
+}
+
+function resetGame() {
+    clearFields();
+    userScore = 0;
+    userScoreBoard.textContent = 0;
+    computerScore = 0;
+    computerScoreBoard.textContent = 0;
 }
