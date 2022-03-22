@@ -21,10 +21,33 @@
     text-shadow: 1px 1px 3px black;
 }
 
-.body {
+.mid-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scores {
+    background-color: #D8D2CB;
     height: 70vh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10%;
+    text-align: center;
+}
+
+.score-label {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+
+.body {
     background-color: #D8D2CB;
+    height: 70vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,7 +98,7 @@
 .body .buttons {
     display: flex;
     justify-content: center;
-    gap: 20%;
+    gap: 10%;
 }
 
 .body button:hover {
@@ -91,6 +114,14 @@
     background-color: #398ab9c2;
     color: lightgrey;
     text-shadow: none;
+}
+
+.body .scores {
+    display: flex;
+    gap: 50%;
+    text-align: center;
+    justify-content: space-around;
+    font-size: 0.75em;
 }
 
 .footer {

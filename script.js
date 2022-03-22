@@ -11,6 +11,12 @@ restartButton.addEventListener('click', resetGame)
 
 const resultOutput = document.querySelector("#result");
 
+const userScoreBoard = document.querySelector("#user-score");
+let userScore = 0;
+
+const computerScoreBoard = document.querySelector("#computer-score");
+let computerScore = 0;
+
 let regex = /^(rock)|(paper)|(scissors)$/i;
 
 
@@ -33,6 +39,7 @@ function runGame() {
     resultOutput.textContent = "Computer chose " + computerChoice + "... " + gameResult + "!";
     playButton.disabled = true;
     playButton.className = "disabled";
+
 }
 
 function chooseRPS() {
@@ -50,8 +57,12 @@ function getResult(user, comp) {
     if (user === comp) {
         return "Draw";
     } else if ((user === "rock" && comp === "paper") || (user === "paper" && comp === "scissors") || (user === "scissors" && comp === "rock")) {
-        return "You lose";
+        computerScore++;
+        computerScoreBoard.textContent = computerScore;
+        return "You lose"; 
     } else {
+        userScore++;
+        userScoreBoard.textContent = userScore;
         return "You win"
     }
 }
