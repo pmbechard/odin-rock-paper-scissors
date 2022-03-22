@@ -35,6 +35,8 @@
 
 .body label {
     font-weight: 700;
+    margin: 0 20%;
+    text-align: center;
 }
 
 .body input {
@@ -44,12 +46,41 @@
     text-align: center;
 }
 
+.body .result {
+    font-size: 0.75em;
+    font-style: italic;
+}
 
+.body button {
+    padding: 10px 20px;
+    background-color: #1C658C;
+    color: #EEEEEE;
+    text-shadow: .5px .5px 1px black;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.75em;
+    width: 15vh;
+}
+
+.body .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+}
+
+.body button:hover {
+    background-color: #398AB9;
+}
+
+.body button:active {
+    color: #D8D2CB;
+    background-color: #1C658C;
+}
 
 .footer {
     height: 10vh;
     width: 100 vw;
-    background-color: #398AB9;
+    background-color: #1C658C;
     display: flex;
     align-items: center;
 }
