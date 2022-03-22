@@ -5,6 +5,11 @@ const playButton = document.querySelector("#play-button");
 playButton.disabled = true;
 playButton.className = "disabled";
 playButton.addEventListener('click', runGame)
+document.addEventListener('keyup', (event) => {
+    if (event.key == "Enter" && playButton.disabled === false) {
+        runGame();
+    }
+})
 
 const restartButton = document.querySelector("#restart-button");
 restartButton.addEventListener('click', resetGame)
