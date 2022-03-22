@@ -1,22 +1,18 @@
-/*
-1. Validate user input as it's being typed in
-2. When play button is pressed
-    a. Generate computer choice
-    b. Compare with user choice to get result
-    c. Print result to screen
-3. When Restart button is pressed
-    a. Clear input
-    b. Clear result
-*/
-
 const inputField = document.querySelector("#user-input");
+inputField.addEventListener('keyup', validateInput)
+
 const playButton = document.querySelector("#play-button");
 playButton.disabled = true;
 playButton.className = "disabled";
+playButton.addEventListener('click', runGame)
+
+const restartButton = document.querySelector("#restart-button");
+restartButton.addEventListener('click', resetGame)
+
+const resultOutput = document.querySelector("#result");
+
 let regex = /^(rock)|(paper)|(scissors)$/i;
 
-inputField.addEventListener('keyup', validateInput)
-// playButton.addEventListener('press', startGame)
 
 function validateInput() {
     if (regex.test(inputField.value)) {
@@ -30,18 +26,39 @@ function validateInput() {
     }
 }
 
+function runGame() {
+    let userChoice = inputField.value.toLowerCase();
+    let computerChoice = chooseRPS();
+    let gameResult = getResult(userChoice, computerChoice);
+    resultOutput.textContent = "Computer chose " + computerChoice + "... " + gameResult + "!";
+    playButton.disabled = true;
+    playButton.className = "disabled";
+}
+
 function chooseRPS() {
     let computerChoice = (Math.floor(Math.random() * 4));
     if (computerChoice === 1) {
-        console.log("Rock");
+        return "rock";
     } else if (computerChoice === 2) {
-        console.log("Paper");
+        return "paper";
     } else {
-        console.log("Scissors");
+        return "scissors";
     }
-    return computerChoice;
 }
 
-function getResult() {
+function getResult(user, comp) {
+    if (user === comp) {
+        return "Draw";
+    } else if ((user === "rock" && comp === "paper") || (user === "paper" && comp === "scissors") || (user === "scissors" && comp === "rock")) {
+        return "You lose";
+    } else {
+        return "You win"
+    }
+}
 
+function resetGame() {
+    resultOutput.textContent = "Press play when you're ready...";
+    inputField.value = "";
+    playButton.disabled = true;
+    playButton.className = "disabled";
 }
