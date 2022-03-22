@@ -116,13 +116,6 @@
     text-shadow: none;
 }
 
-.body .scores {
-    display: flex;
-    gap: 50%;
-    text-align: center;
-    justify-content: space-around;
-    font-size: 0.75em;
-}
 
 .footer {
     height: 10vh;
