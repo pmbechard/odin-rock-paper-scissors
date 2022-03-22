@@ -1,0 +1,14 @@
+.header {
+    height: 20vh;
+    width: 100vw;
+}
+
+.body {
+    height: 70vh;
+    width: 100vw;
+}
+
+.footer {
+    height: 10vh;
+    width: 100 vw;
+}
