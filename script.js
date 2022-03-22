@@ -9,18 +9,26 @@
     b. Clear result
 */
 
-const inputField = document.querySelector('#user-input');
+const inputField = document.querySelector("#user-input");
+const playButton = document.querySelector("#play-button");
+playButton.disabled = true;
+playButton.className = "disabled";
 let regex = /^(rock)|(paper)|(scissors)$/i;
+
 inputField.addEventListener('keyup', validateInput)
+// playButton.addEventListener('press', startGame)
 
 function validateInput() {
     if (regex.test(inputField.value)) {
         inputField.className = "valid";
+        playButton.disabled = false;
+        playButton.className = "";
     } else {
-        inputField.className = "invalid";
+        inputField.className = "invalid";        
+        playButton.disabled = true;
+        playButton.className = "disabled";
     }
 }
-
 
 function chooseRPS() {
     let computerChoice = (Math.floor(Math.random() * 4));

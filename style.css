@@ -87,6 +87,12 @@
     background-color: #1C658C;
 }
 
+.body button.disabled {
+    background-color: #398ab9c2;
+    color: lightgrey;
+    text-shadow: none;
+}
+
 .footer {
     height: 10vh;
     width: 100 vw;
@@ -98,4 +104,5 @@
 .footer small {
     margin-left: 10%;
     font-size: 1em;
+    font-weight: 500;
 }
