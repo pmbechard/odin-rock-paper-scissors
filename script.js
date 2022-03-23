@@ -1,21 +1,43 @@
+/*
+Name: Rock, Paper, Scissors Game
+
+Purpose: This script adds functionality to HTML elements to
+allow users to play RPS against the computer.
+
+Algorithm: A random number between 1-3 (inclusive) is generated
+and matched to either rock, paper, or scissors (respectively).
+This is subsequently checked against the player input to get the
+result.
+
+Inputs: user input via HTML <input>
+
+Outputs: most recent game result (e.g. "The computer chose rock, 
+you win!"") and score keeping
+
+Author: Peyton Bechard
+Date Created: 22 Mar 2022
+*/
+
+
+
 const inputField = document.querySelector("#user-input");
 inputField.addEventListener("keyup", validateInput)
 
 const playButton = document.querySelector("#play-button");
-playButton.disabled = true;
-playButton.className = "disabled";
+disablePlayButton();
 playButton.addEventListener("click", runGame)
+// Adds functionality for 'return' key press in addition to play button press
 document.addEventListener("keyup", (event) => {
     if (event.key == "Enter" && playButton.disabled === false) {
         runGame();
     }
 })
 
-const clearFieldsButton = document.querySelector("#restart-button");
-clearFieldsButton.addEventListener("click", clearFields)
+const clearButton = document.querySelector("#clear-button");
+clearButton.addEventListener("click", clearFields)
 
-const resetAllButton = document.querySelector("#reset-all-button");
-resetAllButton.addEventListener("click", resetGame)
+const resetButton = document.querySelector("#reset-button");
+resetButton.addEventListener("click", resetGame)
 
 const resultOutput = document.querySelector("#result");
 
@@ -25,32 +47,31 @@ let userScore = 0;
 const computerScoreBoard = document.querySelector("#computer-score");
 let computerScore = 0;
 
+// Used for validating user input
 let regex = /^(rock)|(paper)|(scissors)$/i;
 
 
 function validateInput() {
     if (regex.test(inputField.value)) {
         inputField.className = "valid";
-        playButton.disabled = false;
-        playButton.className = "";
+        enablePlayButton();
     } else {
         inputField.className = "invalid";        
-        playButton.disabled = true;
-        playButton.className = "disabled";
+        disablePlayButton();
     }
 }
 
+// Works as the base for game operation
 function runGame() {
     let userChoice = inputField.value.toLowerCase();
-    let computerChoice = chooseRPS();
+    let computerChoice = generateComputerChoice();
     let gameResult = getResult(userChoice, computerChoice);
     resultOutput.textContent = "Computer chose " + computerChoice + "... " + gameResult + "!";
-    playButton.disabled = true;
-    playButton.className = "disabled";
+    disablePlayButton();
 
 }
 
-function chooseRPS() {
+function generateComputerChoice() {
     let computerChoice = (Math.floor(Math.random() * 4));
     if (computerChoice === 1) {
         return "rock";
@@ -78,8 +99,7 @@ function getResult(user, comp) {
 function clearFields() {
     resultOutput.textContent = "Press play when you're ready...";
     inputField.value = "";
-    playButton.disabled = true;
-    playButton.className = "disabled";
+    disablePlayButton();
 }
 
 function resetGame() {
@@ -88,4 +108,14 @@ function resetGame() {
     userScoreBoard.textContent = 0;
     computerScore = 0;
     computerScoreBoard.textContent = 0;
+}
+
+function enablePlayButton() {
+    playButton.disabled = false;
+    playButton.className = "";
+}
+
+function disablePlayButton() {
+    playButton.disabled = true;
+    playButton.className = "disabled";
 }
