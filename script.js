@@ -48,7 +48,7 @@ const computerScoreBoard = document.querySelector("#computer-score");
 let computerScore = 0;
 
 // Used for validating user input
-let regex = /^(rock)|(paper)|(scissors)$/i;
+let regex = /^((rock)|(paper)|(scissors))$/i;
 
 
 function validateInput() {
@@ -68,7 +68,6 @@ function runGame() {
     let gameResult = getResult(userChoice, computerChoice);
     resultOutput.textContent = "Computer chose " + computerChoice + "... " + gameResult + "!";
     disablePlayButton();
-
 }
 
 function generateComputerChoice() {
@@ -99,7 +98,7 @@ function getResult(user, comp) {
 function clearFields() {
     resultOutput.textContent = "Press play when you're ready...";
     inputField.value = "";
-    disablePlayButton();
+    validateInput();
 }
 
 function resetGame() {
@@ -118,4 +117,5 @@ function enablePlayButton() {
 function disablePlayButton() {
     playButton.disabled = true;
     playButton.className = "disabled";
+    inputField.className = "invalid";        
 }
