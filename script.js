@@ -47,6 +47,13 @@ function runGame(userChoice) {
     let computerChoice = generateComputerChoice();
     let gameResult = getResult(userChoice, computerChoice);
     resultOutput.textContent = "Computer chose " + computerChoice + "... " + gameResult + "!";
+    if (gameResult === "You lose") {
+        resultOutput.style.color = "red";
+    } else if (gameResult === "You win") {
+        resultOutput.style.color = "green";
+    } else {
+        resultOutput.style.color = "#1A132F";
+    }
 }
 
 function generateComputerChoice() {
@@ -79,5 +86,7 @@ function resetGame() {
     userScoreBoard.textContent = 0;
     computerScore = 0;
     computerScoreBoard.textContent = 0;
+    resultOutput.textContent = "...";
+    resultOutput.style.color = "black";
 }
 
