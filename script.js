@@ -20,6 +20,16 @@ Date Created: 22 Mar 2022
 Last Updated: 30 March 2022
 */
 
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+
+const userOptions = document.querySelectorAll("img");
+userOptions.forEach( (img) => img.addEventListener("click", (e) => {
+    runGame(e.target.getAttribute("id"));
+}));
+
+
 const resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", resetGame)
 
@@ -33,12 +43,10 @@ let computerScore = 0;
 
 
 // Works as the base for game operation
-function runGame() {
-    
+function runGame(userChoice) {
     let computerChoice = generateComputerChoice();
     let gameResult = getResult(userChoice, computerChoice);
     resultOutput.textContent = "Computer chose " + computerChoice + "... " + gameResult + "!";
-    
 }
 
 function generateComputerChoice() {
