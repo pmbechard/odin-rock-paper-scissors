@@ -38,14 +38,13 @@
     text-align: center;
     border: 1px solid black;
 }
-
-.score-label {
-    font-size: 2vw;
+.scores .score-label  {
+    font-size: 3vw;
     font-weight: 600;
 }
 
 .scores p {
-    font-size: 1.5vw;
+    font-size: 2.5vw;
 }
 
 .body {
@@ -96,8 +95,8 @@
     text-shadow: .5px .5px 1px black;
     border: none;
     border-radius: 5px;
-    font-size: 0.75em;
-    width: 15vh;
+    font-size: 2vw;
+    width: 60%;
 }
 
 .body .buttons {
@@ -107,12 +106,12 @@
 }
 
 .body button:hover {
-    background-color: #5B7DB1;
+    background-color: #1a132fa1;
 }
 
 .body button:active {
     color: #F7E2E2;
-    background-color: #61A4BC;
+    background-color: #1a132fec;
 }
 
 #reset-button {
@@ -121,7 +120,7 @@
 
 .footer {
     height: 10vh;
-    width: 100 vw;
+    width: 100vw;
     background-color: #1A132F;
     display: flex;
     align-items: center;
