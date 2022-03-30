@@ -11,12 +11,11 @@
     background-color: #1A132F;
     display: flex;
     align-items: center;
-
 }
 
 .header h1 {
     margin-left: 10%;
-    font-size: 3em;
+    font-size: 4vw;
     color: #EEEEEE;
     text-shadow: 1px 1px 3px black;
 }
@@ -128,7 +127,7 @@
 
 .footer small {
     margin-left: 10%;
-    font-size: 1em;
+    font-size: 1vw;
     font-weight: 500;
     color: #F7E2E2;
 }
