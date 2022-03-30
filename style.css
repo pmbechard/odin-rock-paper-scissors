@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
 
 .header {
@@ -95,7 +94,7 @@ img:active {
 .body button {
     padding: 10px 20px;
     background-color: #1A132F;
-    color: #F7E2E2;
+    color: #EEEEEE;
     text-shadow: .5px .5px 1px black;
     border: none;
     border-radius: 5px;
@@ -107,6 +106,8 @@ img:active {
     display: flex;
     justify-content: center;
     gap: 10%;
+    color: #EEEEEE;
+
 }
 
 .body button:hover {
@@ -114,7 +115,7 @@ img:active {
 }
 
 .body button:active {
-    color: #F7E2E2;
+    color: #EEEEEE;
     background-color: #1a132fec;
 }
 
@@ -134,5 +135,5 @@ img:active {
     margin-left: 10%;
     font-size: 1vw;
     font-weight: 500;
-    color: #F7E2E2;
+    color: #EEEEEE;
 }
