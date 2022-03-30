@@ -44,6 +44,10 @@
     font-weight: 600;
 }
 
+.scores p {
+    font-size: 1.5vw;
+}
+
 .body {
     background-color: #F7E2E2;
     height: 70vh;
@@ -69,13 +73,13 @@
     display: flex;
     justify-content: center;
     width: 50vw;
-    gap: 5%;
+    gap: 10%;
     flex-wrap: wrap;
-    margin: 5%;
+    margin: 3%;
 }
 
 #play-options img {
-    width: 10vw;
+    width: 8vw;
     height: auto;
 }
 
