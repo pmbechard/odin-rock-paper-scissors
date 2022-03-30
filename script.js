@@ -6,13 +6,14 @@ allow users to play RPS against the computer.
 
 Algorithm: A random number between 1-3 (inclusive) is generated
 and matched to either rock, paper, or scissors (respectively).
-This is subsequently checked against the player input to get the
-result.
+This is subsequently checked against the player input, activated by
+a button press on the images, and a result is provided on the page
+along with an update score tally.
 
-Inputs: user input via HTML <input>
+Inputs: user input via image click
 
 Outputs: most recent game result (e.g. "The computer chose rock, 
-you win!"") and score keeping
+you win!"") and score tally
 
 Author: Peyton Bechard
 Date Created: 22 Mar 2022
