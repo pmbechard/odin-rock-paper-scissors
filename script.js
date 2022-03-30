@@ -17,25 +17,8 @@ you win!"") and score tally
 
 Author: Peyton Bechard
 Date Created: 22 Mar 2022
+Last Updated: 30 March 2022
 */
-
-
-
-const inputField = document.querySelector("#user-input");
-inputField.addEventListener("keyup", validateInput)
-
-const playButton = document.querySelector("#play-button");
-disablePlayButton();
-playButton.addEventListener("click", runGame)
-// Adds functionality for 'return' key press in addition to play button press
-document.addEventListener("keyup", (event) => {
-    if (event.key == "Enter" && playButton.disabled === false) {
-        runGame();
-    }
-})
-
-const clearButton = document.querySelector("#clear-button");
-clearButton.addEventListener("click", clearFields)
 
 const resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", resetGame)
@@ -48,27 +31,14 @@ let userScore = 0;
 const computerScoreBoard = document.querySelector("#computer-score");
 let computerScore = 0;
 
-// Used for validating user input
-let regex = /^((rock)|(paper)|(scissors))$/i;
-
-
-function validateInput() {
-    if (regex.test(inputField.value)) {
-        inputField.className = "valid";
-        enablePlayButton();
-    } else {
-        inputField.className = "invalid";        
-        disablePlayButton();
-    }
-}
 
 // Works as the base for game operation
 function runGame() {
-    let userChoice = inputField.value.toLowerCase();
+    
     let computerChoice = generateComputerChoice();
     let gameResult = getResult(userChoice, computerChoice);
     resultOutput.textContent = "Computer chose " + computerChoice + "... " + gameResult + "!";
-    disablePlayButton();
+    
 }
 
 function generateComputerChoice() {
@@ -96,27 +66,10 @@ function getResult(user, comp) {
     }
 }
 
-function clearFields() {
-    resultOutput.textContent = "Press play when you're ready...";
-    inputField.value = "";
-    validateInput();
-}
-
 function resetGame() {
-    clearFields();
     userScore = 0;
     userScoreBoard.textContent = 0;
     computerScore = 0;
     computerScoreBoard.textContent = 0;
 }
 
-function enablePlayButton() {
-    playButton.disabled = false;
-    playButton.className = "";
-}
-
-function disablePlayButton() {
-    playButton.disabled = true;
-    playButton.className = "disabled";
-    inputField.className = "invalid";        
-}
