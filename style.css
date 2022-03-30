@@ -81,6 +81,11 @@
     height: auto;
 }
 
+img:active {
+    transform: scale(1.2) rotate(15deg);
+    transition-duration: 0.1s;
+}
+
 .body #result {
     font-size: 0.75em;
     font-style: italic;
